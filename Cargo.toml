@@ -1,0 +1,22 @@
+[package]
+name = "inverted_pendulum_pid"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+pyo3 = { version = "0.22", features = ["auto-initialize", "abi3-py39"], optional = true }
+
+[lib]
+name = "inverted_pendulum_pid"
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "inverted_pendulum_pid"
+path = "src/main.rs"
+
+[features]
+default = []
+python = ["pyo3"]
